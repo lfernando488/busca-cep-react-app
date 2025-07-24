@@ -2,6 +2,8 @@ import { useState } from "react";
 import { CepService } from "../Services/CepService";
 import { toast } from "react-toastify";
 import type { CepResponse } from "../Models/CepResponse";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 export function CepForm(){
 
@@ -21,16 +23,14 @@ export function CepForm(){
   
     }
             return (
-            <div style={{ maxWidth: 400 }}>
-                <input
-                    type="text"
-                    placeholder="Digite o CEP"
-                    value={cep}
-                    onChange={(e) => setCep(e.target.value)}
+            <div style={{ maxWidth: 400, margin: 20 }}>
+                <TextField 
+                    label="Digite o CEP" variant="standard"
+                    value={cep} onChange={(e) => setCep(e.target.value)}
                     style={{ width: "100%", marginBottom: 8 }}
             />
             
-            <button onClick={pesquisaCep}>Buscar</button>
+            <Button variant="contained" color="success" onClick={pesquisaCep}>Buscar</Button>
 
                 {logradouro?.logradouro && (
                     <div style={{ marginTop: 16 }}>
